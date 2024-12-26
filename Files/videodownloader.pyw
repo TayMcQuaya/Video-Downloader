@@ -27,6 +27,7 @@ def download_video():
             'timeout': 60,  # Timeout for requests
         }
 
+        # Update the status label to indicate the start of the download
         status_label.config(text="Starting download...")
         progress_bar["value"] = 0
         root.update_idletasks()
@@ -34,12 +35,15 @@ def download_video():
         with YoutubeDL(ydl_opts) as ydl:
             ydl.download([url])
 
+        # Update the status label to indicate completion
         status_label.config(text="Download Completed!")
         messagebox.showinfo("Success", f"Video downloaded successfully to {download_dir}")
     except Exception as e:
+        # Handle exceptions and update the status label
         messagebox.showerror("Error", f"An error occurred: {e}")
         status_label.config(text="Error occurred during download.")
-    progress_bar.stop()
+    finally:
+        progress_bar.stop()
 
 def progress_hook(d):
     if d['status'] == 'downloading':
