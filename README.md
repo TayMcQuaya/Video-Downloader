@@ -1,64 +1,99 @@
-# Video Downloader Program
+# Youtube and X Video Downloader
 
 ## Overview
-This program provides a simple graphical user interface (GUI) for downloading videos from YouTube and X/Twitter. It uses [yt-dlp](https://github.com/yt-dlp/yt-dlp) for video downloading and allows users to select a video URL, download it in the best available quality, and save it as an MP4 file. The program also ensures compatibility by forcing H.264 encoding for better playback support across most devices.
+This program provides a modern, user-friendly graphical interface (GUI) for downloading videos from YouTube and X/Twitter. It uses yt-dlp for video downloading and features a sleek dark theme interface with video preview capabilities. The program downloads videos in the best available quality and saves them as MP4 files.
+Features
 
-## Features
-- **Download videos** from YouTube and X/Twitter.
-- **Forces H.264** (AVC) encoding for broad compatibility.
-- Automatically **merges video and audio streams**.
-- **User-friendly GUI** built with `tkinter`:
-  - **Black background** and **large white text** for readability.
-  - **Custom-styled button** for a more modern look.
-  - **Bright green progress bar** showing download progress.
-- Videos are **saved as MP4** files by default.
-- Progress bar and status messages provide real-time feedback.
+Video Preview: Shows thumbnail and title before downloading
+Modern Dark Theme Interface: Sleek design with blue accents
+Flexible Download Location: Choose where to save your videos
+Real-time Progress Tracking: Shows download speed and ETA
+Smart Window Sizing: Automatically adjusts to content
+Error Handling: Clear error messages and recovery
+Downloads from multiple platforms including YouTube and X/Twitter
+Automatically merges video and audio streams
+Saves videos in MP4 format by default
 
 ## How to Use
-1. **Launch** the program by double-clicking the `video_downloader.pyw` file.
-2. **Enter** the video URL (YouTube or X/Twitter) in the text box.
-3. Click the **Download** button.
-4. A progress bar will indicate the **download progress**.
-5. Once completed, the video will be **saved in a folder named** `Video Downloader` on your Desktop.
+
+Launch the program with python video_downloader.py
+Enter the video URL in the text box
+Click "Download" to fetch video info and start download
+Video thumbnail and title will appear
+Progress bar shows download status with speed and ETA
+Videos are saved in the selected download location (default is Desktop/Video Downloader)
 
 ## Requirements
-1. [**Python 3.8+**](https://www.python.org/downloads/): Ensure Python is installed on your system.
-2. Required Python libraries:
-   - **yt-dlp**: For downloading and merging video/audio.
-   - **tkinter**: For building the GUI (comes pre-installed with most Python distributions).
-   - **pillow**: Optional if you wish to use a custom icon (`.ico` file).
-3. [**FFmpeg**](https://ffmpeg.org/download.html) (especially on Windows):
-   - Needed to **merge video and audio streams** properly.
-   - Make sure it is **added to your system PATH** so `yt-dlp` can find and use it.
 
-### Install Dependencies
-Install the required libraries using the following commands:
-```bash
-pip install yt-dlp pillow
-```
-> **Note:** `tkinter` typically ships with Python on Windows and macOS. On some Linux distros, it might need separate installation (e.g., `sudo apt-get install python3-tk`).
+Python 3.6+: Required to run the application
+Required Python packages:
 
-## Running the Program
-1. Place the `video_downloader.pyw` file (and optionally, the `video_downloader_icon.ico`) in the same directory.
-2. Ensure **Python** is installed and the **dependencies** listed above are installed.
-3. Double-click the `video_downloader.pyw` to launch the GUI.
-4. Follow the instructions in the **How to Use** section to download your videos.
+yt-dlp: For video downloading
+Pillow: For image handling (thumbnails)
+tkinter: For the GUI (usually comes with Python)
 
-## Custom UI Notes
-- The main window **background** is set to **black**.
-- All **text** is displayed in **white** with larger fonts for better visibility.
-- The **Download** button is styled with a **dark-gray background** and **white** text, becoming lighter when hovered.
-- The **progress bar** is a **thick green bar** over a dark-gray trough, making it more visible.
-- You can easily **modify colors and fonts** in the code to match your preferences by adjusting the `ttk.Style` configurations.
+
+FFmpeg: Required for merging video and audio streams
+
+Installation
+
+Install Python from python.org
+Install required packages:
+
+bashCopypip install yt-dlp pillow
+
+Install FFmpeg:
+
+Windows: Download from ffmpeg.org and add to PATH
+Mac: brew install ffmpeg
+Linux: sudo apt-get install ffmpeg or equivalent
+
+
+
+## Download Options
+
+Custom Save Location: Change download directory anytime
+High Quality: Downloads best available quality automatically
+Progress Tracking: Shows percentage, speed, and time remaining
+Error Recovery: Handles network issues and invalid URLs gracefully
 
 ## Troubleshooting
-- If the program doesn't open, ensure **Python** is installed and properly associated with `.pyw` files.
-- If video downloads fail or produce unsupported formats:
-  - Check your **internet connection**.
-  - Ensure **FFmpeg** is installed and configured in your PATH.
-  - Verify that the **video URL** is valid.
-- If you encounter any **visual display issues** (like text not updating), try installing an updated version of Python and using the included `root.update()` calls or separate threads to handle lengthy downloads.
-- For **AV1 codec issues** (or if you specifically need older H.264 compatibility), verify you have the latest script version that **forces H.264** encoding.
+Common Issues
+
+"Loading" stuck:
+
+Check your internet connection
+Verify the URL is valid
+Try restarting the application
+
+
+Download fails:
+
+Ensure FFmpeg is properly installed
+Check write permissions in download directory
+Verify URL is accessible
+
+
+Window sizing issues:
+
+The window will automatically resize for content
+Minimum window size is 800x600
+Maximum height is screen height minus 100px
+
+
+
+Error Messages
+
+The application provides specific error messages for common issues
+Network errors are handled gracefully
+Invalid URLs are detected early
+
+## Technical Details
+Built with Python's tkinter for GUI
+Uses threading for responsive UI during downloads
+Implements proper error handling and recovery
+Features automatic window management
+Uses PIL for image processing
 
 ## Icon
 The program can include a custom `.ico` file (e.g., `video_downloader_icon.ico`) as the application icon for a more polished look. Place this file in the same directory as the main `.pyw` script and update the Tkinter icon reference in the code if desired.
@@ -69,9 +104,11 @@ The program can include a custom `.ico` file (e.g., `video_downloader_icon.ico`)
 - [Pillow Documentation](https://pillow.readthedocs.io/)
 - [FFmpeg Download](https://ffmpeg.org/download.html)
 
+## Contributing
+Feel free to submit issues and enhancement requests!
+
 ## License
-This program is open source and free to use for personal projects. If you modify or distribute it, please retain the original credits.
+This program is open source and free to use. Please retain credits when modifying or distributing.
 
+Created with ♥ for easy video downloads
 ---
-
-Enjoy your video downloader with ease!
